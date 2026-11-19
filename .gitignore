@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Data: KID PDFs are never committed
+data/raw/
+*.pdf
+
+# Secrets
+.env
+
+# Run outputs (from week 4)
+traces/
