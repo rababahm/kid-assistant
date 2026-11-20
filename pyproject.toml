@@ -7,7 +7,9 @@ authors = [
     { name = "Mohammad Rababah", email = "119531086+rababahm@users.noreply.github.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pdfplumber>=0.11.10",
+]
 
 [project.scripts]
 kid-assistant = "kid_assistant:main"
@@ -17,6 +19,10 @@ requires = ["uv_build>=0.13.6,<0.14.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
+compare = [
+    "pymupdf>=2.1",
+    "pymupdf4llm>=2.1",
+]
 dev = [
     "pytest>=9.2.0",
     "ruff>=0.17.5",

@@ -19,3 +19,4 @@ data/raw/
 # Run outputs (from week 4)
 traces/
 .DS_Store
+parsed/
