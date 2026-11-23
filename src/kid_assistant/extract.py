@@ -41,16 +41,20 @@ def build_prompt(kid_text: str) -> str:
     )
 
 
-def extract(pdf_path: str | Path) -> tuple[KidFacts, ChatResponse]:
-    """Run the model on one KID and validate its reply against the schema."""
-    prompt = build_prompt(read_kid_text(pdf_path))
-    response = ollama.chat(
-        model=MODEL,
-        messages=[{"role": "user", "content": prompt}],
+def ask_model(pdf_path: str | Path, model: str = MODEL) -> ChatResponse:
+    """Send one KID to the model; the reply is constrained to the schema."""
+    return ollama.chat(
+        model=model,
+        messages=[{"role": "user", "content": build_prompt(read_kid_text(pdf_path))}],
         format=KidFacts.model_json_schema(),  # constrained decoding against the schema
         think=False,
         options=OPTIONS,
     )
+
+
+def extract(pdf_path: str | Path, model: str = MODEL) -> tuple[KidFacts, ChatResponse]:
+    """Run the model on one KID and validate its reply against the schema."""
+    response = ask_model(pdf_path, model)
     facts = KidFacts.model_validate_json(response.message.content)
     return facts, response
 

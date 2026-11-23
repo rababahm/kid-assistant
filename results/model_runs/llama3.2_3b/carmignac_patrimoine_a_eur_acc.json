@@ -1,0 +1,60 @@
+{
+  "model": "llama3.2:3b",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "presence_penalty": 0
+  },
+  "kid_id": "carmignac_patrimoine_a_eur_acc",
+  "seconds": 17.4,
+  "prompt_tokens": 4668,
+  "raw": "{\"fund_name\": {\"value\": \"Carmignac Patrimoine A EUR Acc\", \"page\": 1}, \"isin\": {\"value\": \"FR0010135103\", \"page\": 1}, \"manufacturer\": {\"value\": \"Carmignac Gestion S.A.\", \"page\": 1}, \"kid_date\": {\"value\": \"16/04/2026\", \"page\": 1}, \"risk_indicator\": {\"value\": 3, \"page\": 2}, \"recommended_holding_period_years\": {\"value\": 3, \"page\": 2}, \"entry_cost_pct\": {\"value\": 0, \"page\": 2, \"is_maximum\": true}, \"exit_cost_pct\": {\"value\": 0, \"page\": 2, \"is_maximum\": true}, \"management_fees_and_other_costs_pct\": {\"value\": 1.80, \"page\": 2}, \"transaction_costs_pct\": {\"value\": 0.32, \"page\": 2}, \"performance_fee_pct\": {\"value\": 20, \"page\": 2}}",
+  "valid": true,
+  "score": {
+    "fund_name": {
+      "value": true,
+      "page": true
+    },
+    "isin": {
+      "value": true,
+      "page": true
+    },
+    "manufacturer": {
+      "value": true,
+      "page": true
+    },
+    "kid_date": {
+      "value": true,
+      "page": true
+    },
+    "risk_indicator": {
+      "value": true,
+      "page": true
+    },
+    "recommended_holding_period_years": {
+      "value": true,
+      "page": true
+    },
+    "entry_cost_pct": {
+      "value": false,
+      "page": false
+    },
+    "exit_cost_pct": {
+      "value": false,
+      "page": false
+    },
+    "management_fees_and_other_costs_pct": {
+      "value": true,
+      "page": false
+    },
+    "transaction_costs_pct": {
+      "value": true,
+      "page": false
+    },
+    "performance_fee_pct": {
+      "value": true,
+      "page": false
+    }
+  }
+}

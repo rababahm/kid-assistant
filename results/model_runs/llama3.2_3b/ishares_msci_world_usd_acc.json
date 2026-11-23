@@ -1,0 +1,60 @@
+{
+  "model": "llama3.2:3b",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "presence_penalty": 0
+  },
+  "kid_id": "ishares_msci_world_usd_acc",
+  "seconds": 16.3,
+  "prompt_tokens": 4349,
+  "raw": "{\"fund_name\": {\"value\": \"iShares Core MSCI World UCITS ETF (USD Accu)\", \"page\": 1}, \"isin\": {\"value\": \"IE00B4L5Y983\", \"page\": 1}, \"manufacturer\": {\"value\": \"BlackRock Asset Management Ireland Limited\", \"page\": 1}, \"kid_date\": {\"value\": \"03 September 2026\", \"page\": 1}, \"risk_indicator\": {\"value\": 4, \"page\": 2}, \"recommended_holding_period_years\": {\"value\": 5, \"page\": 2}, \"entry_cost_pct\": {\"value\": 0, \"page\": 3, \"is_maximum\": true}, \"exit_cost_pct\": {\"value\": 0, \"page\": 3, \"is_maximum\": true}, \"management_fees_and_other_costs_pct\": {\"value\": 0.20, \"page\": 3}, \"transaction_costs_pct\": {\"value\": 0.00, \"page\": 3}, \"performance_fee_pct\": {\"value\": 0, \"page\": 3}}",
+  "valid": true,
+  "score": {
+    "fund_name": {
+      "value": true,
+      "page": true
+    },
+    "isin": {
+      "value": true,
+      "page": true
+    },
+    "manufacturer": {
+      "value": true,
+      "page": true
+    },
+    "kid_date": {
+      "value": true,
+      "page": true
+    },
+    "risk_indicator": {
+      "value": true,
+      "page": true
+    },
+    "recommended_holding_period_years": {
+      "value": true,
+      "page": true
+    },
+    "entry_cost_pct": {
+      "value": false,
+      "page": true
+    },
+    "exit_cost_pct": {
+      "value": false,
+      "page": true
+    },
+    "management_fees_and_other_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "transaction_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "performance_fee_pct": {
+      "value": true,
+      "page": true
+    }
+  }
+}

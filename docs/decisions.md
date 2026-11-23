@@ -41,3 +41,33 @@ Pictet KIDs scoring clearly worse, or misses tagged "parser lost it". A
 fallback would be chosen on a property measured in the document (for example,
 no table found on the cost page) and accepted only if no words are lost
 compared with plain text, never on the provider's name.
+
+## 2. Generation model: qwen3.5:4b (23 Nov 2026)
+
+**Compared:** three local models on the six pilot (dev) KIDs, one extraction each,
+with `scripts/compare_models.py` (raw replies in `results/model_runs/`), scored
+against `gold/` with `src/kid_assistant/score.py`. Settings for all: schema in
+`format`, `think=False`, temperature 0, seed 42, `num_ctx` 8192, `presence_penalty` 0.
+
+| Model | Ollama ID | Schema-valid | Values right (95% CI) | Pages right (95% CI) | Median s/KID | Memory |
+|---|---|---|---|---|---|---|
+| qwen3.5:4b | 7f3251fa6878 | 6/6 | 64/66 = 97% (90-99) | 66/66 = 100% (94-100) | 28.5 | 4.2 GB |
+| phi4-mini | 78fad5d182a7 | 6/6 | 62/66 = 94% (85-98) | 46/66 = 70% (58-79) | 23.8 | 3.7 GB |
+| llama3.2:3b | a80c4f17acd5 | 6/6 | 54/66 = 82% (71-89) | 41/66 = 62% (50-73) | 16.9 | 3.1 GB |
+
+**Reasoning:** On values, qwen3.5:4b and phi4-mini cannot be separated with 66
+values (2 against 4 misses, overlapping intervals). On pages they can: qwen3.5:4b
+cited the right page for all 66 values, while phi4-mini cited page 2 for most
+page-3 costs. Correct pages are required for citations in step 2, so qwen3.5:4b
+is chosen, at the cost of about 5 seconds more per KID and 0.5 GB more memory.
+llama3.2:3b missed entry and exit costs on every KID.
+
+**Known issues (dev set, to fix in week 2):**
+- Entry costs where the manufacturer charges nothing but the seller may charge
+  up to a maximum (Carmignac, Pictet): the schema does not say which to record.
+  The gold labels record the maximum; the description must say so.
+- Pictet I USD management fees: 0.26 instead of 0.22 in some runs (with the
+  default `presence_penalty`, and after a small schema change). The value is not
+  on the page; a check that every value appears on its cited page would catch it.
+- Sample: 6 KIDs, one run each, dev set only. These numbers are for choosing,
+  not for reporting.
