@@ -5,17 +5,17 @@ ishares_msci_world_usd_acc,IE00B4L5Y983,index_etf,4,5 years,none,0,,dev,gold
 ishares_usd_treasury_1_3yr_dist,IE00B14X4S71,bond,2,3 years,none,0,,dev,gold
 carmignac_investissement_a_eur_acc,FR0010148981,equity,4,5 years,20,up to 4,,dev,gold
 carmignac_patrimoine_a_eur_acc,FR0010135103,multi_asset,3,3 years,20,up to 4,,dev,gold
-pictet_st_mm_usd_p,LU0128496485,money_market,1,1 month,none,up to 5,,dev,yes
-invesco_eqqq_nasdaq100_dist,IE0032077012,index_etf,5,5 years,none,0,,dev,yes
-ubs_smi_etf_chf_dis,CH0017142719,index_etf,4,5 years,none,up to 5,,test,yes
-swisscanto_ch_equity_sustainable_aa_chf,CH0009074300,equity,4,10 years,none,up to 5,,test,yes
-spdr_msci_world_small_cap_acc,IE00BCBJG560,index_etf,5,5 years,none,0,,test,yes
-vanguard_ftse_all_world_usd_acc,IE00BK5BQT80,index_etf,4,5 years,none,0,,test,yes
-vanguard_global_agg_bond_eur_hedged_acc,IE00BG47KH54,bond,2,3 years,none,0,,test,yes
-vanguard_eur_corp_bond_eur_dist,IE00BZ163G84,bond,2,3 years,none,0,,test,yes
-vaneck_gold_miners_usd_a,IE00BQQP9F84,index_etf,6,5 years,none,0,,test,yes
-lo_ch_st_mm_chf_i_d,CH0111012818,money_market,1,1 week,none,0,,test,yes
-lo_all_roads_chf_hdg_pa,LU0718508897,multi_asset,2,5 years,none,0,,test,yes
-mirabaud_multi_assets_flexible_ah_usd,LU2289561719,multi_asset,3,5 years,none,0,,test,yes
-pictet_tr_atlas_i_eur,LU1433232698,alternative,2,5 years,20,up to 5,pictet_tr_atlas_p_eur,test,yes
-pictet_tr_atlas_p_eur,LU1433232854,alternative,2,5 years,20,up to 5,pictet_tr_atlas_i_eur,test,yes
+pictet_st_mm_usd_p,LU0128496485,money_market,1,1 month,none,up to 5,,dev,kid
+invesco_eqqq_nasdaq100_dist,IE0032077012,index_etf,5,5 years,none,0,,dev,kid
+ishares_smi_ch_dis,CH0008899764,index_etf,4,5 years,none,up to 5,,test,kid
+mirabaud_equities_swiss_small_mid_a_chf,LU0636969866,equity,4,5 years,none,0,,test,kid
+spdr_msci_world_small_cap_acc,IE00BCBJG560,index_etf,4,5 years,none,0,,test,kid
+vanguard_ftse_all_world_usd_acc,IE00BK5BQT80,index_etf,4,5 years,none,0,,test,kid
+vanguard_ftse_em_usd_acc,IE00BK5BR733,index_etf,4,5 years,none,0,,test,kid
+vanguard_global_agg_bond_eur_hedged_acc,IE00BG47KH54,bond,2,3 years,none,0,,test,kid
+vanguard_eur_corp_bond_eur_dist,IE00BZ163G84,bond,2,3 years,none,0,,test,kid
+vaneck_gold_miners_usd_a,IE00BQQP9F84,index_etf,6,5 years,none,0,,test,kid
+lo_ch_st_mm_chf_i_d,CH0111012818,money_market,1,1 week,none,0,,test,kid
+mirabaud_multi_assets_flexible_ah_usd,LU2289561719,multi_asset,3,5 years,none,0,mirabaud_multi_assets_flexible_nh_usd,test,kid
+mirabaud_multi_assets_flexible_nh_usd,LU2289561982,multi_asset,3,5 years,none,0,mirabaud_multi_assets_flexible_ah_usd,test,kid
+pictet_tr_atlas_i_eur,LU1433232698,alternative,2,5 years,20,up to 5,,test,kid
