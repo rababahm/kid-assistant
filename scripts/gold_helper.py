@@ -12,7 +12,7 @@ from pathlib import Path
 
 import pdfplumber
 
-from kid_assistant.schema import CostValue, KidFacts
+from kid_assistant.schema import CostValue, HoldingPeriodValue, KidFacts
 
 ROOT = Path(__file__).resolve().parent.parent  # scripts/ -> repository root
 RAW_DIR = ROOT / "data" / "raw"
@@ -25,7 +25,10 @@ DATE = re.compile(
     r"|October|November|December) \d{4}\b"
 )
 RISK = re.compile(r"classified this product as (\d) out of 7")
-HOLDING = re.compile(r"recommended holding period[^.]{0,60}?\d+ years?", re.IGNORECASE)
+HOLDING = re.compile(
+    r"recommended holding period[^.]{0,60}?\d+ (?:years?|months?|weeks?|days?)(?:\(s\))?",
+    re.IGNORECASE,
+)
 COST_LABELS = [
     "entry costs",
     "exit costs",
@@ -90,7 +93,10 @@ def main() -> None:
             return
         empty = {"kid_id": args.kid_id}
         for name, field in KidFacts.model_fields.items():
-            entry = {"value": None, "pages": [], "quote": ""}
+            entry = {"value": None}
+            if field.annotation is HoldingPeriodValue:
+                entry["unit"] = None  # same key order as the migrated gold files
+            entry |= {"pages": [], "quote": ""}
             if field.annotation is CostValue:
                 entry["is_maximum"] = None
             empty[name] = entry
