@@ -25,8 +25,9 @@
     "pages": [2],
     "quote": "classified this product as 2 out of 7"
   },
-  "recommended_holding_period_years": {
+  "recommended_holding_period": {
     "value": 3,
+    "unit": "years",
     "pages": [2, 3],
     "quote": "Recommended Holding Period: 3 years"
   },

@@ -47,6 +47,8 @@ def score(facts: KidFacts, gold: dict) -> dict[str, dict[str, bool]]:
             "is_maximum" in expected
         ):  # cost fields: "up to 5%" is not the same fact as "5%"
             value_ok = value_ok and predicted.is_maximum == expected["is_maximum"]
+        if "unit" in expected:  # holding period: "5 months" is not "5 years"
+            value_ok = value_ok and predicted.unit == expected["unit"]
         results[field] = {
             "value": value_ok,
             "page": predicted.page in expected["pages"],

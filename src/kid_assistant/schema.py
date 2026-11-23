@@ -1,5 +1,7 @@
 """Schema for the facts extracted from one KID: each value with the page it was found on."""
 
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 MAX_PAGES = 3  # a KID has at most three pages (PRIIPs regulation)
@@ -16,8 +18,14 @@ class RiskValue(BaseModel):
     page: int = Field(ge=1, le=MAX_PAGES, description=PAGE_DESCRIPTION)
 
 
-class YearsValue(BaseModel):
-    value: float = Field(gt=0, description="Number of years")
+class HoldingPeriodValue(BaseModel):
+    value: float = Field(gt=0, description="The number exactly as printed: 5 for '5 years'")
+    unit: Literal["days", "weeks", "months", "years"] = Field(
+        description=(
+            "The unit as printed, as one of these four words "
+            "('Year(s)' is years, '1 month' is months)"
+        )
+    )
     page: int = Field(ge=1, le=MAX_PAGES, description=PAGE_DESCRIPTION)
 
 
@@ -58,8 +66,11 @@ class KidFacts(BaseModel):
             'as N out of 7"'
         )
     )
-    recommended_holding_period_years: YearsValue = Field(
-        description="Recommended holding period, in years"
+    recommended_holding_period: HoldingPeriodValue = Field(
+        description=(
+            "Recommended holding period: the number and its unit exactly as stated, "
+            "not converted (1 month stays 1 month)"
+        )
     )
     # Page 3: composition of costs
     entry_cost_pct: CostValue = Field(
