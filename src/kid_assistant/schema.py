@@ -19,7 +19,9 @@ class RiskValue(BaseModel):
 
 
 class HoldingPeriodValue(BaseModel):
-    value: float = Field(gt=0, description="The number exactly as printed: 5 for '5 years'")
+    value: float = Field(
+        gt=0, description="The number exactly as printed: 5 for '5 years'"
+    )
     unit: Literal["days", "weeks", "months", "years"] = Field(
         description=(
             "The unit as printed, as one of these four words "
