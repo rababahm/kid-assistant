@@ -1,0 +1,60 @@
+{
+  "kid_id": "pictet_gold_i_usd",
+  "fund_name": {
+    "value": "Pictet CH Precious Metals Fund - Physical Gold - I USD",
+    "pages": [1],
+    "quote": "Pictet CH Precious Metals Fund - Physical Gold - I USD"
+  },
+  "isin": {
+    "value": "CH0104848269",
+    "pages": [1],
+    "quote": "CH0104848269"
+  },
+  "manufacturer": {
+    "value": "Pictet Asset Management SA",
+    "pages": [1],
+    "quote": "Pictet Asset Management SA"
+  },
+  "kid_date": {
+    "value": "06-02-2026",
+    "pages": [1],
+    "quote": "The date of production of this KID is 06-02-2026."
+  },
+  "risk_indicator": {
+    "value": 4,
+    "pages": [2],
+    "quote": "classified this product as 4 out of 7"
+  },
+  "recommended_holding_period_years": {
+    "value": 5,
+    "pages": [2, 3],
+    "quote": "Recommended holding period: 5 years"
+  },
+  "entry_cost_pct": {
+    "value": 5.0,
+    "is_maximum": true,
+    "pages": [3],
+    "quote": "to a maximum of 5.00%."
+  },
+  "exit_cost_pct": {
+    "value": 1.0,
+    "is_maximum": true,
+    "pages": [3],
+    "quote": "charge you no more than 1.00%."
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 0.22,
+    "pages": [3],
+    "quote": "0.22% taken from this Share Class over a year."
+  },
+  "transaction_costs_pct": {
+    "value": 0.04,
+    "pages": [3],
+    "quote": "0.04% of the value of your investment per year."
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "There is no performance fee for this product."
+  }
+}

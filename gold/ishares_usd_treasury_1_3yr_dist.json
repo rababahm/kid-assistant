@@ -1,0 +1,60 @@
+{
+  "kid_id": "ishares_usd_treasury_1_3yr_dist",
+  "fund_name": {
+    "value": "iShares $ Treasury Bond 1-3yr UCITS ETF, USD Dist",
+    "pages": [1],
+    "quote": "iShares $ Treasury Bond 1-3yr UCITS ETF (the “Fund”), USD Dist"
+  },
+  "isin": {
+    "value": "IE00B14X4S71",
+    "pages": [1],
+    "quote": "IE00B14X4S71"
+  },
+  "manufacturer": {
+    "value": "BlackRock Asset Management Ireland Limited",
+    "pages": [1],
+    "quote": "manufactured by BlackRock Asset Management Ireland Limited"
+  },
+  "kid_date": {
+    "value": "09 April 2026",
+    "pages": [1],
+    "quote": "This document is dated 09 April 2026."
+  },
+  "risk_indicator": {
+    "value": 2,
+    "pages": [2],
+    "quote": "classified this product as 2 out of 7"
+  },
+  "recommended_holding_period_years": {
+    "value": 3,
+    "pages": [2, 3],
+    "quote": "Recommended Holding Period: 3 years"
+  },
+  "entry_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "We do not charge an entry fee.",
+    "is_maximum": false
+  },
+  "exit_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "We do not charge an exit fee.",
+    "is_maximum": false
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 0.07,
+    "pages": [3],
+    "quote": "0.07% of the value of your investment per year."
+  },
+  "transaction_costs_pct": {
+    "value": 0.02,
+    "pages": [3],
+    "quote": "0.02% of the value of your investment per year."
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "There is no performance fee for this product."
+  }
+}

@@ -78,5 +78,8 @@ class KidFacts(BaseModel):
         description='The row "Transaction costs", % of the investment per year'
     )
     performance_fee_pct: PercentValue = Field(
-        description="Performance fee, %; 0 if the KID says there is no performance fee"
+        description=(
+            "Performance fee rate as stated in the KID, in % of outperformance "
+            "(20 for '20% of outperformance'); 0 if the KID says there is no performance fee"
+        )
     )

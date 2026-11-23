@@ -1,0 +1,60 @@
+{
+  "kid_id": "carmignac_investissement_a_eur_acc",
+  "fund_name": {
+    "value": "Carmignac Investissement, A EUR Acc",
+    "pages": [1],
+    "quote": "Product name: Carmignac Investissement"
+  },
+  "isin": {
+    "value": "FR0010148981",
+    "pages": [1],
+    "quote": "FR0010148981"
+  },
+  "manufacturer": {
+    "value": "Carmignac Gestion S.A.",
+    "pages": [1],
+    "quote": "Name of the manufacturer: Carmignac Gestion S.A."
+  },
+  "kid_date": {
+    "value": "16/04/2026",
+    "pages": [1],
+    "quote": "Date of production of the KID: 16/04/2026"
+  },
+  "risk_indicator": {
+    "value": 4,
+    "pages": [2],
+    "quote": "classified this product as 4 out of 7"
+  },
+  "recommended_holding_period_years": {
+    "value": 5,
+    "pages": [2],
+    "quote": "Recommended holding period: 5 years"
+  },
+  "entry_cost_pct": {
+    "value": 4.0,
+    "pages": [3],
+    "quote": "Max. 4.00% of the amount you pay in when entering this investment.",
+    "is_maximum": true
+  },
+  "exit_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "We do not charge an exit fee for this product.",
+    "is_maximum": false
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 1.8,
+    "pages": [3],
+    "quote": "1.80% of the value of your investment per year."
+  },
+  "transaction_costs_pct": {
+    "value": 0.35,
+    "pages": [3],
+    "quote": "0.35% of the value of your investment per year."
+  },
+  "performance_fee_pct": {
+    "value": 20.0,
+    "pages": [3],
+    "quote": "20% max. of outperformance"
+  }
+}
