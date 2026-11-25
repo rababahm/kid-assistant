@@ -1,0 +1,62 @@
+{
+  "kid_id": "mirabaud_equities_swiss_small_mid_a_chf",
+  "reviewed": true,
+  "fund_name": {
+    "value": "Mirabaud - Equities Swiss Small and Mid - A cap. CHF",
+    "pages": [1],
+    "quote": "Mirabaud - Equities Swiss Small and Mid - A cap. CHF"
+  },
+  "isin": {
+    "value": "LU0636969866",
+    "pages": [1],
+    "quote": "ISIN: LU0636969866"
+  },
+  "manufacturer": {
+    "value": "FundPartner Solutions (Europe) S.A.",
+    "pages": [1],
+    "quote": "Product manufacturer: FundPartner Solutions (Europe) S.A."
+  },
+  "kid_date": {
+    "value": "1st April 2026",
+    "pages": [1],
+    "quote": "This key information document is accurate as at 1st April 2026"
+  },
+  "risk_indicator": {
+    "value": 4,
+    "pages": [2],
+    "quote": "classified this product as 4 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 5,
+    "unit": "years",
+    "pages": [2, 3],
+    "quote": "5 years"
+  },
+  "entry_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "We do not charge an entry fee for this Class",
+    "is_maximum": false
+  },
+  "exit_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "We do not charge an exit fee for this Class",
+    "is_maximum": false
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 1.8,
+    "pages": [3],
+    "quote": "1.80% of the value of your investment per year"
+  },
+  "transaction_costs_pct": {
+    "value": 0.03,
+    "pages": [3],
+    "quote": "0.03% of the value of your investment per year"
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "There is no performance fee for this product"
+  }
+}
