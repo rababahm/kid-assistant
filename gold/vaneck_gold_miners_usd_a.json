@@ -1,0 +1,62 @@
+{
+  "kid_id": "vaneck_gold_miners_usd_a",
+  "reviewed": true,
+  "fund_name": {
+    "value": "VanEck Gold Miners UCITS ETF",
+    "pages": [1],
+    "quote": "Name of Product: VanEck Gold Miners UCITS ETF"
+  },
+  "isin": {
+    "value": "IE00BQQP9F84",
+    "pages": [1],
+    "quote": "ISIN: IE00BQQP9F84"
+  },
+  "manufacturer": {
+    "value": "VanEck Asset Management B.V.",
+    "pages": [1],
+    "quote": "PRIIP Manufacturer: VanEck Asset Management B.V."
+  },
+  "kid_date": {
+    "value": "27 March 2026",
+    "pages": [1],
+    "quote": "Date of production of the KID: 27 March 2026"
+  },
+  "risk_indicator": {
+    "value": 6,
+    "pages": [2],
+    "quote": "classified this Product as 6 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 5,
+    "unit": "years",
+    "pages": [2, 3],
+    "quote": "Recommended holding period: 5 years"
+  },
+  "entry_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "We do not charge an entry fee",
+    "is_maximum": false
+  },
+  "exit_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "We do not charge an exit fee",
+    "is_maximum": false
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 0.53,
+    "pages": [3],
+    "quote": "0.53 % of the value of your investment per year"
+  },
+  "transaction_costs_pct": {
+    "value": 0.02,
+    "pages": [3],
+    "quote": "0.02 % of the value of your investment per year"
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "There is no performance fee for this Product"
+  }
+}
