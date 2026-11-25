@@ -1,0 +1,62 @@
+{
+  "kid_id": "lo_ch_st_mm_chf_i_d",
+  "reviewed": true,
+  "fund_name": {
+    "value": "LO Funds (CH) - Money Market (CHF), ID",
+    "pages": [1],
+    "quote": "LO Funds (CH) - Money Market (CHF), ID"
+  },
+  "isin": {
+    "value": "CH0111012818",
+    "pages": [1],
+    "quote": "ISIN: CH0111012818"
+  },
+  "manufacturer": {
+    "value": "Lombard Odier Asset Management (Switzerland) SA",
+    "pages": [1],
+    "quote": "Fund management company: Lombard Odier Asset Management (Switzerland) SA"
+  },
+  "kid_date": {
+    "value": "21 September, 2026",
+    "pages": [1],
+    "quote": "Date of revision and production: 21 September, 2026"
+  },
+  "risk_indicator": {
+    "value": 1,
+    "pages": [2],
+    "quote": "classified this product as 1 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 1,
+    "unit": "weeks",
+    "pages": [2, 3],
+    "quote": "holding period: 1 week"
+  },
+  "entry_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "We do not charge an entry fee",
+    "is_maximum": false
+  },
+  "exit_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "We do not charge an exit fee for this product",
+    "is_maximum": false
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 0.17,
+    "pages": [3],
+    "quote": "0.17% of the value of your investment per year"
+  },
+  "transaction_costs_pct": {
+    "value": 0.06,
+    "pages": [3],
+    "quote": "Transaction costs 0.06% of the value of your investment per year"
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "There is no performance fee for this product"
+  }
+}
