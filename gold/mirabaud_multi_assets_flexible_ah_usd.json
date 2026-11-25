@@ -1,0 +1,62 @@
+{
+  "kid_id": "mirabaud_multi_assets_flexible_ah_usd",
+  "reviewed": true,
+  "fund_name": {
+    "value": "Mirabaud Multi Assets - Flexible - A H cap. USD",
+    "pages": [1],
+    "quote": "Class: Mirabaud Multi Assets - Flexible - A H cap. USD"
+  },
+  "isin": {
+    "value": "LU2289561719",
+    "pages": [1],
+    "quote": "ISIN: LU2289561719"
+  },
+  "manufacturer": {
+    "value": "FundPartner Solutions (Europe) S.A.",
+    "pages": [1],
+    "quote": "Product manufacturer: FundPartner Solutions (Europe) S.A."
+  },
+  "kid_date": {
+    "value": "1st April 2026",
+    "pages": [1],
+    "quote": "This key information document is accurate as at 1st April 2026"
+  },
+  "risk_indicator": {
+    "value": 3,
+    "pages": [2],
+    "quote": "classified this product as 3 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 5,
+    "unit": "years",
+    "pages": [2, 3],
+    "quote": "Recommended holding period (RHP): 5 years"
+  },
+  "entry_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "We do not charge an entry fee for this Class",
+    "is_maximum": false
+  },
+  "exit_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "We do not charge an exit fee for this Class",
+    "is_maximum": false
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 1.61,
+    "pages": [3],
+    "quote": "1.61% of the value of your investment per year"
+  },
+  "transaction_costs_pct": {
+    "value": 0.17,
+    "pages": [3],
+    "quote": "0.17% of the value of your investment per year"
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "There is no performance fee for this product"
+  }
+}
