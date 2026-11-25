@@ -1,0 +1,62 @@
+{
+  "kid_id": "vanguard_global_agg_bond_eur_hedged_acc",
+  "reviewed": true,
+  "fund_name": {
+    "value": "Vanguard Global Aggregate Bond UCITS ETF EUR Hedged Accumulating Shares",
+    "pages": [1],
+    "quote": "Vanguard Global Aggregate Bond UCITS ETF (the \"Fund\") - EUR Hedged Accumulating Shares"
+  },
+  "isin": {
+    "value": "IE00BG47KH54",
+    "pages": [1],
+    "quote": "IE00BG47KH54"
+  },
+  "manufacturer": {
+    "value": "Vanguard Group (Ireland) Limited",
+    "pages": [1],
+    "quote": "Vanguard Group (Ireland) Limited"
+  },
+  "kid_date": {
+    "value": "24/03/2026",
+    "pages": [1],
+    "quote": "This Key Information Document is dated 24/03/2026"
+  },
+  "risk_indicator": {
+    "value": 2,
+    "pages": [2],
+    "quote": "classified this Fund as 2 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 3,
+    "unit": "years",
+    "pages": [2, 3],
+    "quote": "3 years"
+  },
+  "entry_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "The Fund does not charge an entry fee",
+    "is_maximum": false
+  },
+  "exit_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "The Fund does not charge an exit fee",
+    "is_maximum": false
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 0.08,
+    "pages": [3],
+    "quote": "0.08% of the value of your investment p.a."
+  },
+  "transaction_costs_pct": {
+    "value": 0.12,
+    "pages": [3],
+    "quote": "0.12% of the value of your investment per year"
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "There is no performance fee for this Fund"
+  }
+}
