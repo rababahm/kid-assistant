@@ -68,7 +68,7 @@ class KidFacts(BaseModel):
     risk_indicator: RiskValue = Field(
         description=(
             'Summary risk indicator, from the sentence "We have classified this product '
-            'as N out of 7"'
+            'as N out of 7"; page is the page where that sentence is printed'
         )
     )
     recommended_holding_period: HoldingPeriodValue = Field(
