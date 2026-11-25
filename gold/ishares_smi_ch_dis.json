@@ -1,0 +1,61 @@
+{
+  "kid_id": "ishares_smi_ch_dis",
+  "fund_name": {
+    "value": "iShares SMI® ETF (CH)",
+    "pages": [1],
+    "quote": "iShares SMI® ETF (CH) (the “Fund”)"
+  },
+  "isin": {
+    "value": "CH0008899764",
+    "pages": [1],
+    "quote": "ISIN: CH0008899764"
+  },
+  "manufacturer": {
+    "value": "BlackRock Asset Management Switzerland AG",
+    "pages": [1],
+    "quote": "is issued by BlackRock Asset Management Switzerland AG"
+  },
+  "kid_date": {
+    "value": "09 April 2026",
+    "pages": [1],
+    "quote": "This document is dated 09 April 2026"
+  },
+  "risk_indicator": {
+    "value": 4,
+    "pages": [2],
+    "quote": "We have classified this product as 4 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 5,
+    "unit": "years",
+    "pages": [2, 3],
+    "quote": "5 years"
+  },
+  "entry_cost_pct": {
+    "value": 5.0,
+    "pages": [3],
+    "quote": "Entry costs 5.00% of the amount you pay",
+    "is_maximum": true
+  },
+  "exit_cost_pct": {
+    "value": 3.0,
+    "pages": [3],
+    "quote": "Exit costs 3.00% of your investment",
+    "is_maximum": true
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 0.35,
+    "pages": [3],
+    "quote": "Management fees and 0.35% of the value of your investment per year"
+  },
+  "transaction_costs_pct": {
+    "value": 0.01,
+    "pages": [3],
+    "quote": "Transaction costs 0.01% of the value of your investment per year"
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "Performance fees There is no performance fee for this product"
+  }
+}
