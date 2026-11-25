@@ -1,0 +1,62 @@
+{
+  "kid_id": "vanguard_eur_corp_bond_eur_dist",
+  "reviewed": true,
+  "fund_name": {
+    "value": "Vanguard EUR Corporate Bond UCITS ETF (EUR) Distributing Shares",
+    "pages": [1],
+    "quote": "Vanguard EUR Corporate Bond UCITS ETF (the \"Fund\") - (EUR) Distributing Shares"
+  },
+  "isin": {
+    "value": "IE00BZ163G84",
+    "pages": [1],
+    "quote": "IE00BZ163G84"
+  },
+  "manufacturer": {
+    "value": "Vanguard Group (Ireland) Limited",
+    "pages": [1],
+    "quote": "Vanguard Group (Ireland) Limited"
+  },
+  "kid_date": {
+    "value": "29/07/2026",
+    "pages": [1],
+    "quote": "This Key Information Document is dated 29/07/2026"
+  },
+  "risk_indicator": {
+    "value": 2,
+    "pages": [1],
+    "quote": "classified this Fund as 2 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 3,
+    "unit": "years",
+    "pages": [2, 3],
+    "quote": "3 years"
+  },
+  "entry_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "The Fund does not charge an entry fee",
+    "is_maximum": false
+  },
+  "exit_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "The Fund does not charge an exit fee",
+    "is_maximum": false
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 0.07,
+    "pages": [3],
+    "quote": "0.07% of the value of your investment p.a."
+  },
+  "transaction_costs_pct": {
+    "value": 0.03,
+    "pages": [3],
+    "quote": "0.03% of the value of your investment per year"
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "There is no performance fee for this Fund"
+  }
+}
