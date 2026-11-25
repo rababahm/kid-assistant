@@ -2,17 +2,33 @@
 
 import argparse
 import json
+from dataclasses import dataclass
 from pathlib import Path
 from time import perf_counter
 
 import ollama
 import pdfplumber
 from ollama import ChatResponse
+from pydantic import ValidationError
 
 from kid_assistant.schema import KidFacts
 
 MODEL = "qwen3.5:4b"
 OPTIONS = {"temperature": 0, "seed": 42, "num_ctx": 8192, "presence_penalty": 0}
+MAX_ATTEMPTS = 2  # the first answer plus one retry
+
+
+@dataclass
+class Extraction:
+    """Outcome of one KID: the facts (None if every attempt failed) and the evidence."""
+
+    facts: KidFacts | None
+    responses: list[ChatResponse]  # every raw reply, in order
+    errors: list[str]  # one entry per failed attempt
+
+    @property
+    def attempts(self) -> int:
+        return len(self.responses)
 
 
 def read_kid_text(pdf_path: str | Path) -> str:
@@ -41,22 +57,57 @@ def build_prompt(kid_text: str) -> str:
     )
 
 
-def ask_model(pdf_path: str | Path, model: str = MODEL) -> ChatResponse:
-    """Send one KID to the model; the reply is constrained to the schema."""
-    return ollama.chat(
+def call_model(
+    messages: list[dict], model: str = MODEL, chat=ollama.chat
+) -> ChatResponse:
+    """One model call, constrained to the schema. `chat` is replaceable by a fake in tests."""
+    return chat(
         model=model,
-        messages=[{"role": "user", "content": build_prompt(read_kid_text(pdf_path))}],
+        messages=messages,
         format=KidFacts.model_json_schema(),  # constrained decoding against the schema
         think=False,
         options=OPTIONS,
     )
 
 
-def extract(pdf_path: str | Path, model: str = MODEL) -> tuple[KidFacts, ChatResponse]:
-    """Run the model on one KID and validate its reply against the schema."""
-    response = ask_model(pdf_path, model)
-    facts = KidFacts.model_validate_json(response.message.content)
-    return facts, response
+def ask_model(pdf_path: str | Path, model: str = MODEL) -> ChatResponse:
+    """Single call on one KID, no retry (kept for scripts/compare_models.py)."""
+    prompt = build_prompt(read_kid_text(pdf_path))
+    return call_model([{"role": "user", "content": prompt}], model)
+
+
+def describe_errors(error: ValidationError) -> str:
+    """Short list of what failed, readable by the model: '- field.sub: message'."""
+    return "\n".join(
+        f"- {'.'.join(str(p) for p in e['loc']) or 'output'}: {e['msg']}"
+        for e in error.errors()
+    )
+
+
+def extract(pdf_path: str | Path, model: str = MODEL, chat=ollama.chat) -> Extraction:
+    """Ask the model; if the reply fails validation, retry once with the errors."""
+    prompt = build_prompt(read_kid_text(pdf_path))
+    messages = [{"role": "user", "content": prompt}]
+    responses, errors = [], []
+    for _ in range(MAX_ATTEMPTS):
+        response = call_model(messages, model, chat)
+        responses.append(response)
+        try:
+            facts = KidFacts.model_validate_json(response.message.content)
+        except ValidationError as error:
+            errors.append(describe_errors(error))
+            messages += [
+                {"role": "assistant", "content": response.message.content},
+                {
+                    "role": "user",
+                    "content": "Your JSON failed validation:\n"
+                    + errors[-1]
+                    + "\nReturn the corrected JSON object only.",
+                },
+            ]
+        else:
+            return Extraction(facts, responses, errors)
+    return Extraction(None, responses, errors)
 
 
 def main() -> None:
@@ -68,13 +119,16 @@ def main() -> None:
     print(f"model: {MODEL}  options: {OPTIONS}\n")
     for run in range(1, args.runs + 1):
         start = perf_counter()
-        facts, response = extract(args.pdf_path)
+        result = extract(args.pdf_path)
         seconds = perf_counter() - start
-        print(f"--- run {run}")
-        print(facts.model_dump_json(indent=2))
+        print(f"--- run {run}  attempts: {result.attempts}  seconds: {seconds:.1f}")
+        if result.facts is None:
+            print("FAILED after retry:\n" + "\n".join(result.errors))
+        else:
+            print(result.facts.model_dump_json(indent=2))
+        last = result.responses[-1]
         print(
-            f"prompt tokens: {response.prompt_eval_count}  "
-            f"output tokens: {response.eval_count}  seconds: {seconds:.1f}\n"
+            f"prompt tokens: {last.prompt_eval_count}  output tokens: {last.eval_count}\n"
         )
 
 

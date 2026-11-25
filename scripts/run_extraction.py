@@ -16,9 +16,8 @@ import time
 from pathlib import Path
 
 import ollama
-from pydantic import ValidationError
 
-from kid_assistant.extract import MODEL, OPTIONS, ask_model
+from kid_assistant.extract import MAX_ATTEMPTS, MODEL, OPTIONS, extract
 from kid_assistant.schema import KidFacts
 from kid_assistant.score import load_gold, score
 
@@ -77,7 +76,7 @@ def main() -> None:
     fields = list(KidFacts.model_fields)
     value_ok = dict.fromkeys(fields, 0)
     page_ok = dict.fromkeys(fields, 0)
-    invalid, seconds = [], []
+    invalid, retried, seconds = [], [], []
     digest = model_digest(MODEL)
     out_dir.mkdir(parents=True)
 
@@ -87,33 +86,39 @@ def main() -> None:
         if sha256(pdf) != row["sha256"]:
             sys.exit(f"{kid_id}: file differs from the manifest hash")
         start = time.perf_counter()
-        response = ask_model(pdf, MODEL)
+        result = extract(pdf, MODEL)
         seconds.append(time.perf_counter() - start)
+        if result.attempts > 1:
+            retried.append(kid_id)
         record = {
             "kid_id": kid_id,
             "kid_sha256": row["sha256"],
             "model": MODEL,
             "model_digest": digest,
             "options": OPTIONS,
+            "max_attempts": MAX_ATTEMPTS,
+            "attempts": result.attempts,
             "seconds": round(seconds[-1], 1),
-            "prompt_tokens": response.prompt_eval_count,
-            "raw": response.message.content,
+            "prompt_tokens": [r.prompt_eval_count for r in result.responses],
+            "raw": [r.message.content for r in result.responses],
+            "errors": result.errors,
         }
-        try:
-            facts = KidFacts.model_validate_json(response.message.content)
-        except ValidationError as error:
+        if result.facts is None:
             invalid.append(kid_id)
-            record["valid"], record["error"] = False, str(error)
-            print(f"{kid_id:42} INVALID")
+            record["valid"] = False
+            print(f"{kid_id:42} INVALID after {result.attempts} attempts")
         else:
-            result = score(facts, load_gold(GOLD_DIR / f"{kid_id}.json"))
-            record["valid"], record["score"] = True, result
-            for field, ok in result.items():
+            scored = score(result.facts, load_gold(GOLD_DIR / f"{kid_id}.json"))
+            record["valid"], record["score"] = True, scored
+            for field, ok in scored.items():
                 value_ok[field] += ok["value"]
                 page_ok[field] += ok["page"]
-            v = sum(ok["value"] for ok in result.values())
-            p = sum(ok["page"] for ok in result.values())
-            print(f"{kid_id:42} values {v}/{len(fields)}  pages {p}/{len(fields)}")
+            v = sum(ok["value"] for ok in scored.values())
+            p = sum(ok["page"] for ok in scored.values())
+            note = "  (after retry)" if result.attempts > 1 else ""
+            print(
+                f"{kid_id:42} values {v}/{len(fields)}  pages {p}/{len(fields)}{note}"
+            )
         (out_dir / f"{kid_id}.json").write_text(
             json.dumps(record, indent=2), encoding="utf-8"
         )
@@ -125,8 +130,10 @@ def main() -> None:
         "model": MODEL,
         "model_digest": digest,
         "options": OPTIONS,
+        "max_attempts": MAX_ATTEMPTS,
         "kids": len(rows),
         "invalid": invalid,
+        "retried": retried,
         "values": f"{sum(value_ok.values())}/{n}",
         "pages": f"{sum(page_ok.values())}/{n}",
         "median_seconds": round(statistics.median(seconds), 1),
@@ -140,7 +147,8 @@ def main() -> None:
     for f in fields:
         print(f"{f:40} {value_ok[f]:6} {page_ok[f]:6}")
     print(
-        f"\nvalues {summary['values']}  pages {summary['pages']}  invalid {len(invalid)}"
+        f"\nvalues {summary['values']}  pages {summary['pages']}  "
+        f"invalid {len(invalid)}  retried {len(retried)}"
     )
     print(f"median {summary['median_seconds']} s/KID  model {MODEL} {digest}")
 
