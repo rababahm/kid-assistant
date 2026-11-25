@@ -1,0 +1,61 @@
+{
+  "kid_id": "invesco_eqqq_nasdaq100_dist",
+  "fund_name": {
+    "value": "Invesco EQQQ NASDAQ-100 UCITS ETF Dist",
+    "pages": [1],
+    "quote": "Invesco EQQQ NASDAQ-100 UCITS ETF"
+  },
+  "isin": {
+    "value": "IE0032077012",
+    "pages": [1],
+    "quote": "IE0032077012"
+  },
+  "manufacturer": {
+    "value": "Invesco Investment Management Limited",
+    "pages": [1],
+    "quote": "The Fund is managed by Invesco Investment Management Limited"
+  },
+  "kid_date": {
+    "value": "26 June 2026",
+    "pages": [1],
+    "quote": "This Key Information Document is accurate as at 26 June 2026."
+  },
+  "risk_indicator": {
+    "value": 5,
+    "pages": [1],
+    "quote": "classified this product as 5 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 5,
+    "unit": "years",
+    "pages": [2],
+    "quote": "Recommended holding period: 5 years"
+  },
+  "entry_cost_pct": {
+    "value": 0.0,
+    "pages": [2],
+    "quote": "We do not charge an entry fee for this product",
+    "is_maximum": false
+  },
+  "exit_cost_pct": {
+    "value": 0.0,
+    "pages": [2],
+    "quote": "We do not charge an exit fee for this product",
+    "is_maximum": false
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 0.30,
+    "pages": [2],
+    "quote": "0.30% of the value of your investment per year"
+  },
+  "transaction_costs_pct": {
+    "value": 0.0,
+    "pages": [2],
+    "quote": "0.00% of the value of your investment per year"
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [2],
+    "quote": "There is no performance fee for this product."
+  }
+}

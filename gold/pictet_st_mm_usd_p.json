@@ -1,0 +1,61 @@
+{
+  "kid_id": "pictet_st_mm_usd_p",
+  "fund_name": {
+    "value": "Pictet - Short-Term Money Market USD - P",
+    "pages": [1],
+    "quote": "Pictet - Short-Term Money Market USD - P"
+  },
+  "isin": {
+    "value": "LU0128496485",
+    "pages": [1],
+    "quote": "LU0128496485"
+  },
+  "manufacturer": {
+    "value": "Pictet Asset Management (Europe) S.A.",
+    "pages": [1],
+    "quote": "Pictet Asset Management (Europe) S.A."
+  },
+  "kid_date": {
+    "value": "19-06-2026",
+    "pages": [1],
+    "quote": "The date of production of this KID is 19-06-2026."
+  },
+  "risk_indicator": {
+    "value": 1,
+    "pages": [2],
+    "quote": "We have classified this product as 1 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 1,
+    "unit": "months",
+    "pages": [2, 3],
+    "quote": "Recommended holding period: 1 month"
+  },
+  "entry_cost_pct": {
+    "value": 5.0,
+    "pages": [3],
+    "quote": "charge you up to a maximum of 5.00%.",
+    "is_maximum": true
+  },
+  "exit_cost_pct": {
+    "value": 1.0,
+    "pages": [3],
+    "quote": "product may charge you no more than 1.00%.",
+    "is_maximum": true
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 0.31,
+    "pages": [3],
+    "quote": "0.31% taken from this Share Class over a year"
+  },
+  "transaction_costs_pct": {
+    "value": 0.02,
+    "pages": [3],
+    "quote": "0.02% of the value of your investment per year"
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "There is no performance fee for this product."
+  }
+}
