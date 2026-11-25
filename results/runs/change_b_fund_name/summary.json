@@ -1,0 +1,63 @@
+{
+  "run": "change_b_fund_name",
+  "split": "dev",
+  "model": "qwen3.5:4b",
+  "model_digest": "7f3251fa6878a78a606bcb3c074283306e5ad2ea411a7774a9dd98a4bc7f2d13",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "presence_penalty": 0
+  },
+  "kids": 8,
+  "invalid": [],
+  "values": "88/88",
+  "pages": "87/88",
+  "median_seconds": 29.3,
+  "per_field": {
+    "fund_name": {
+      "values": 8,
+      "pages": 8
+    },
+    "isin": {
+      "values": 8,
+      "pages": 8
+    },
+    "manufacturer": {
+      "values": 8,
+      "pages": 8
+    },
+    "kid_date": {
+      "values": 8,
+      "pages": 8
+    },
+    "risk_indicator": {
+      "values": 8,
+      "pages": 7
+    },
+    "recommended_holding_period": {
+      "values": 8,
+      "pages": 8
+    },
+    "entry_cost_pct": {
+      "values": 8,
+      "pages": 8
+    },
+    "exit_cost_pct": {
+      "values": 8,
+      "pages": 8
+    },
+    "management_fees_and_other_costs_pct": {
+      "values": 8,
+      "pages": 8
+    },
+    "transaction_costs_pct": {
+      "values": 8,
+      "pages": 8
+    },
+    "performance_fee_pct": {
+      "values": 8,
+      "pages": 8
+    }
+  }
+}

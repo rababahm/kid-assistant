@@ -52,7 +52,10 @@ class KidFacts(BaseModel):
 
     # Page 1
     fund_name: TextValue = Field(
-        description="Full name of the fund and share class, exactly as written on page 1"
+        description=(
+            "Name of the fund followed by its share class (for example 'A EUR Acc' "
+            "or 'Dist'), as written on page 1; the share class may be on a separate line"
+        )
     )
     isin: TextValue = Field(description="ISIN code of the share class: 12 characters")
     manufacturer: TextValue = Field(

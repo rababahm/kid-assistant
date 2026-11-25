@@ -1,0 +1,62 @@
+{
+  "kid_id": "ishares_usd_treasury_1_3yr_dist",
+  "kid_sha256": "0f7950b0b33e57499bf669ccafb6bb0da4f8593a837456bb56207c620c471a25",
+  "model": "qwen3.5:4b",
+  "model_digest": "7f3251fa6878a78a606bcb3c074283306e5ad2ea411a7774a9dd98a4bc7f2d13",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "presence_penalty": 0
+  },
+  "seconds": 27.6,
+  "prompt_tokens": 4756,
+  "raw": "{\n  \"fund_name\": {\n    \"value\": \"iShares $ Treasury Bond 1-3yr UCITS ETF (the \\\"Fund\\\"), USD Dist (the \\\"Share Class\\\")\",\n    \"page\": 1\n  },\n  \"isin\": {\n    \"value\": \"IE00B14X4S71\",\n    \"page\": 1\n  },\n  \"manufacturer\": {\n    \"value\": \"BlackRock Asset Management Ireland Limited (the \\\"Manager\\\")\",\n    \"page\": 1\n  },\n  \"kid_date\": {\n    \"value\": \"09 April 2026\",\n    \"page\": 1\n  },\n  \"risk_indicator\": {\n    \"value\": 2,\n    \"page\": 2\n  },\n  \"recommended_holding_period\": {\n    \"value\": 3,\n    \"unit\": \"years\",\n    \"page\": 2\n  },\n  \"entry_cost_pct\": {\n    \"value\": 0,\n    \"page\": 3,\n    \"is_maximum\": false\n  },\n  \"exit_cost_pct\": {\n    \"value\": 0,\n    \"page\": 3,\n    \"is_maximum\": false\n  },\n  \"management_fees_and_other_costs_pct\": {\n    \"value\": 0.07,\n    \"page\": 3\n  },\n  \"transaction_costs_pct\": {\n    \"value\": 0.02,\n    \"page\": 3\n  },\n  \"performance_fee_pct\": {\n    \"value\": 0,\n    \"page\": 3\n  }\n}",
+  "valid": true,
+  "score": {
+    "fund_name": {
+      "value": true,
+      "page": true
+    },
+    "isin": {
+      "value": true,
+      "page": true
+    },
+    "manufacturer": {
+      "value": true,
+      "page": true
+    },
+    "kid_date": {
+      "value": true,
+      "page": true
+    },
+    "risk_indicator": {
+      "value": true,
+      "page": true
+    },
+    "recommended_holding_period": {
+      "value": true,
+      "page": true
+    },
+    "entry_cost_pct": {
+      "value": true,
+      "page": true
+    },
+    "exit_cost_pct": {
+      "value": true,
+      "page": true
+    },
+    "management_fees_and_other_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "transaction_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "performance_fee_pct": {
+      "value": true,
+      "page": true
+    }
+  }
+}
