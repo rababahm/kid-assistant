@@ -1,0 +1,62 @@
+{
+  "kid_id": "pictet_tr_atlas_i_eur",
+  "reviewed": true,
+  "fund_name": {
+    "value": "Pictet TR - Atlas - I EUR",
+    "pages": [1],
+    "quote": "Pictet TR - Atlas - I EUR"
+  },
+  "isin": {
+    "value": "LU1433232698",
+    "pages": [1],
+    "quote": "ISIN: LU1433232698"
+  },
+  "manufacturer": {
+    "value": "Pictet Asset Management (Europe) S.A.",
+    "pages": [1],
+    "quote": "Pictet Asset Management (Europe) S.A., (the \"Management Company\")"
+  },
+  "kid_date": {
+    "value": "19-06-2026",
+    "pages": [1],
+    "quote": "The date of production of this KID is 19-06-2026"
+  },
+  "risk_indicator": {
+    "value": 2,
+    "pages": [2],
+    "quote": "classified this product as 2 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 5,
+    "unit": "years",
+    "pages": [2, 3],
+    "quote": "Recommended holding period: 5 years"
+  },
+  "entry_cost_pct": {
+    "value": 5.0,
+    "pages": [3],
+    "quote": "charge you up to a maximum of 5.00%",
+    "is_maximum": true
+  },
+  "exit_cost_pct": {
+    "value": 1.0,
+    "pages": [3],
+    "quote": "product may charge you no more than 1.00%",
+    "is_maximum": true
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 1.43,
+    "pages": [3],
+    "quote": "1.43% taken from this Share Class over a year"
+  },
+  "transaction_costs_pct": {
+    "value": 0.4,
+    "pages": [3],
+    "quote": "0.40% of the value of your investment per year"
+  },
+  "performance_fee_pct": {
+    "value": 20.0,
+    "pages": [3],
+    "quote": "20% of the outperformance against a yearly High Water Mark"
+  }
+}
