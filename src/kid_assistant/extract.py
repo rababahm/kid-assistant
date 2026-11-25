@@ -17,6 +17,9 @@ from kid_assistant.schema import KidFacts
 MODEL = "qwen3.5:4b"
 OPTIONS = {"temperature": 0, "seed": 42, "num_ctx": 8192, "presence_penalty": 0}
 MAX_ATTEMPTS = 2  # the first answer plus one retry
+# pdfplumber default 3 merges words in tightly set fonts (SPDR KID, 25 Nov);
+# 2 changes no line on the 8 dev KIDs and restores the spaces.
+PDF_X_TOLERANCE = 2
 
 
 @dataclass
@@ -36,7 +39,10 @@ class Extraction:
 def read_pages(pdf_path: str | Path) -> list[str]:
     """Text of each page (pdfplumber), in order: index 0 is page 1."""
     with pdfplumber.open(pdf_path) as pdf:
-        return [(page.extract_text() or "").strip() for page in pdf.pages]
+        return [
+            (page.extract_text(x_tolerance=PDF_X_TOLERANCE) or "").strip()
+            for page in pdf.pages
+        ]
 
 
 def format_pages(pages: list[str], source: str | Path = "the PDF") -> str:

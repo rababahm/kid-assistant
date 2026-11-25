@@ -22,6 +22,7 @@ from pathlib import Path
 import pdfplumber
 from pydantic import ValidationError
 
+from kid_assistant.extract import PDF_X_TOLERANCE
 from kid_assistant.schema import CostValue, HoldingPeriodValue, KidFacts
 
 ROOT = Path(__file__).resolve().parent.parent  # scripts/ -> repository root
@@ -59,7 +60,9 @@ def read_pages(pdf_path: Path) -> tuple[list[list[str]], list[list[str]]]:
     texts, tables = [], []
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
-            texts.append((page.extract_text() or "").splitlines())
+            texts.append(
+                (page.extract_text(x_tolerance=PDF_X_TOLERANCE) or "").splitlines()
+            )
             tables.append(
                 [
                     " | ".join((c or "").replace("\n", " ") for c in row)
