@@ -1,0 +1,62 @@
+{
+  "kid_id": "carmignac_patrimoine_a_eur_acc",
+  "kid_sha256": "be22924edb2ffe68b47cc327cdc836e8bd01d637a177481eee92a878f6fb6add",
+  "model": "qwen3.5:4b",
+  "model_digest": "7f3251fa6878a78a606bcb3c074283306e5ad2ea411a7774a9dd98a4bc7f2d13",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "presence_penalty": 0
+  },
+  "seconds": 28.4,
+  "prompt_tokens": 4932,
+  "raw": "{\n  \"fund_name\": {\n    \"value\": \"Carmignac Patrimoine A EUR Acc\",\n    \"page\": 1\n  },\n  \"isin\": {\n    \"value\": \"FR0010135103\",\n    \"page\": 1\n  },\n  \"manufacturer\": {\n    \"value\": \"Carmignac Gestion S.A.\",\n    \"page\": 1\n  },\n  \"kid_date\": {\n    \"value\": \"16/04/2026\",\n    \"page\": 1\n  },\n  \"risk_indicator\": {\n    \"value\": 3,\n    \"page\": 2\n  },\n  \"recommended_holding_period\": {\n    \"value\": 3,\n    \"unit\": \"years\",\n    \"page\": 2\n  },\n  \"entry_cost_pct\": {\n    \"value\": 0,\n    \"page\": 3,\n    \"is_maximum\": false\n  },\n  \"exit_cost_pct\": {\n    \"value\": 0,\n    \"page\": 3,\n    \"is_maximum\": false\n  },\n  \"management_fees_and_other_costs_pct\": {\n    \"value\": 1.8,\n    \"page\": 3\n  },\n  \"transaction_costs_pct\": {\n    \"value\": 0.32,\n    \"page\": 3\n  },\n  \"performance_fee_pct\": {\n    \"value\": 20,\n    \"page\": 3\n  }\n}",
+  "valid": true,
+  "score": {
+    "fund_name": {
+      "value": true,
+      "page": true
+    },
+    "isin": {
+      "value": true,
+      "page": true
+    },
+    "manufacturer": {
+      "value": true,
+      "page": true
+    },
+    "kid_date": {
+      "value": true,
+      "page": true
+    },
+    "risk_indicator": {
+      "value": true,
+      "page": true
+    },
+    "recommended_holding_period": {
+      "value": true,
+      "page": true
+    },
+    "entry_cost_pct": {
+      "value": false,
+      "page": true
+    },
+    "exit_cost_pct": {
+      "value": true,
+      "page": true
+    },
+    "management_fees_and_other_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "transaction_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "performance_fee_pct": {
+      "value": true,
+      "page": true
+    }
+  }
+}
