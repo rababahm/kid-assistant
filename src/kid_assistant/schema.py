@@ -76,10 +76,18 @@ class KidFacts(BaseModel):
     )
     # Page 3: composition of costs
     entry_cost_pct: CostValue = Field(
-        description="Entry costs, % of the amount invested; 0 if no entry costs are charged"
+        description=(
+            "Entry costs, % of the amount invested. If the manufacturer charges nothing "
+            "but the person selling the product may charge up to X%, give X. "
+            "0 only if no entry cost is charged by anyone"
+        )
     )
     exit_cost_pct: CostValue = Field(
-        description="Exit costs, % of the investment; 0 if no exit costs are charged"
+        description=(
+            "Exit costs, % of the investment. If the manufacturer charges nothing "
+            "but the person selling the product may charge up to X%, give X. "
+            "0 only if no exit cost is charged by anyone"
+        )
     )
     management_fees_and_other_costs_pct: PercentValue = Field(
         description=(
