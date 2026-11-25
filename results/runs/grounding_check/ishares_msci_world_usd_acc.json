@@ -1,0 +1,70 @@
+{
+  "kid_id": "ishares_msci_world_usd_acc",
+  "kid_sha256": "cc488a0aee09ca6e49757ea675611df9b7d4d078d137b004046bcb740e8f1406",
+  "model": "qwen3.5:4b",
+  "model_digest": "7f3251fa6878a78a606bcb3c074283306e5ad2ea411a7774a9dd98a4bc7f2d13",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "presence_penalty": 0
+  },
+  "max_attempts": 2,
+  "attempts": 1,
+  "seconds": 30.7,
+  "prompt_tokens": [
+    4679
+  ],
+  "raw": [
+    "{\n  \"fund_name\": {\n    \"value\": \"iShares Core MSCI World UCITS ETF (the \\\"Fund\\\"), USD Accu (the \\\"Share Class\\\")\",\n    \"page\": 1\n  },\n  \"isin\": {\n    \"value\": \"IE00B4L5Y983\",\n    \"page\": 1\n  },\n  \"manufacturer\": {\n    \"value\": \"BlackRock Asset Management Ireland Limited (the \\\"Manager\\\")\",\n    \"page\": 1\n  },\n  \"kid_date\": {\n    \"value\": \"03 September 2026\",\n    \"page\": 1\n  },\n  \"risk_indicator\": {\n    \"value\": 4,\n    \"page\": 2\n  },\n  \"recommended_holding_period\": {\n    \"value\": 5,\n    \"unit\": \"years\",\n    \"page\": 2\n  },\n  \"entry_cost_pct\": {\n    \"value\": 0,\n    \"page\": 3\n  ,\n  \"is_maximum\": false\n  },\n  \"exit_cost_pct\": {\n    \"value\": 0,\n    \"page\": 3\n  ,\n  \"is_maximum\": false\n  },\n  \"management_fees_and_other_costs_pct\": {\n    \"value\": 0.2,\n    \"page\": 3\n  },\n  \"transaction_costs_pct\": {\n    \"value\": 0.0,\n    \"page\": 3\n  },\n  \"performance_fee_pct\": {\n    \"value\": 0,\n    \"page\": 3\n  }\n}"
+  ],
+  "errors": [],
+  "ungrounded": [],
+  "valid": true,
+  "score": {
+    "fund_name": {
+      "value": true,
+      "page": true
+    },
+    "isin": {
+      "value": true,
+      "page": true
+    },
+    "manufacturer": {
+      "value": true,
+      "page": true
+    },
+    "kid_date": {
+      "value": true,
+      "page": true
+    },
+    "risk_indicator": {
+      "value": true,
+      "page": true
+    },
+    "recommended_holding_period": {
+      "value": true,
+      "page": true
+    },
+    "entry_cost_pct": {
+      "value": true,
+      "page": true
+    },
+    "exit_cost_pct": {
+      "value": true,
+      "page": true
+    },
+    "management_fees_and_other_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "transaction_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "performance_fee_pct": {
+      "value": true,
+      "page": true
+    }
+  }
+}

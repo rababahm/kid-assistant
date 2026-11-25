@@ -77,6 +77,7 @@ def main() -> None:
     value_ok = dict.fromkeys(fields, 0)
     page_ok = dict.fromkeys(fields, 0)
     invalid, retried, seconds = [], [], []
+    ungrounded = {}  # kid_id -> flags left after the retry
     digest = model_digest(MODEL)
     out_dir.mkdir(parents=True)
 
@@ -90,6 +91,8 @@ def main() -> None:
         seconds.append(time.perf_counter() - start)
         if result.attempts > 1:
             retried.append(kid_id)
+        if result.ungrounded:
+            ungrounded[kid_id] = result.ungrounded
         record = {
             "kid_id": kid_id,
             "kid_sha256": row["sha256"],
@@ -102,6 +105,7 @@ def main() -> None:
             "prompt_tokens": [r.prompt_eval_count for r in result.responses],
             "raw": [r.message.content for r in result.responses],
             "errors": result.errors,
+            "ungrounded": result.ungrounded,
         }
         if result.facts is None:
             invalid.append(kid_id)
@@ -116,6 +120,9 @@ def main() -> None:
             v = sum(ok["value"] for ok in scored.values())
             p = sum(ok["page"] for ok in scored.values())
             note = "  (after retry)" if result.attempts > 1 else ""
+            note += (
+                f"  UNGROUNDED {len(result.ungrounded)}" if result.ungrounded else ""
+            )
             print(
                 f"{kid_id:42} values {v}/{len(fields)}  pages {p}/{len(fields)}{note}"
             )
@@ -134,6 +141,7 @@ def main() -> None:
         "kids": len(rows),
         "invalid": invalid,
         "retried": retried,
+        "ungrounded": ungrounded,
         "values": f"{sum(value_ok.values())}/{n}",
         "pages": f"{sum(page_ok.values())}/{n}",
         "median_seconds": round(statistics.median(seconds), 1),
@@ -147,8 +155,8 @@ def main() -> None:
     for f in fields:
         print(f"{f:40} {value_ok[f]:6} {page_ok[f]:6}")
     print(
-        f"\nvalues {summary['values']}  pages {summary['pages']}  "
-        f"invalid {len(invalid)}  retried {len(retried)}"
+        f"\nvalues {summary['values']}  pages {summary['pages']}  invalid {len(invalid)}"
+        f"  retried {len(retried)}  ungrounded {len(ungrounded)}"
     )
     print(f"median {summary['median_seconds']} s/KID  model {MODEL} {digest}")
 

@@ -2,7 +2,7 @@
 
 import argparse
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from time import perf_counter
 
@@ -11,6 +11,7 @@ import pdfplumber
 from ollama import ChatResponse
 from pydantic import ValidationError
 
+from kid_assistant.grounding import grounding_problems
 from kid_assistant.schema import KidFacts
 
 MODEL = "qwen3.5:4b"
@@ -20,30 +21,37 @@ MAX_ATTEMPTS = 2  # the first answer plus one retry
 
 @dataclass
 class Extraction:
-    """Outcome of one KID: the facts (None if every attempt failed) and the evidence."""
+    """Outcome of one KID: the facts (None if no valid answer) and the evidence."""
 
     facts: KidFacts | None
     responses: list[ChatResponse]  # every raw reply, in order
-    errors: list[str]  # one entry per failed attempt
+    errors: list[str]  # one entry per rejected attempt (invalid or ungrounded)
+    ungrounded: list[str] = field(default_factory=list)  # flags left on the final facts
 
     @property
     def attempts(self) -> int:
         return len(self.responses)
 
 
+def read_pages(pdf_path: str | Path) -> list[str]:
+    """Text of each page (pdfplumber), in order: index 0 is page 1."""
+    with pdfplumber.open(pdf_path) as pdf:
+        return [(page.extract_text() or "").strip() for page in pdf.pages]
+
+
+def format_pages(pages: list[str], source: str | Path = "the PDF") -> str:
+    """Join pages with a '--- page N ---' marker before each, as the model sees them."""
+    if not any(pages):
+        # A scanned PDF has no text layer: fail loudly rather than send empty pages.
+        raise ValueError(f"No extractable text in {source}. A scan may need OCR.")
+    return "\n\n".join(
+        f"--- page {n} ---\n{text}" for n, text in enumerate(pages, start=1)
+    )
+
+
 def read_kid_text(pdf_path: str | Path) -> str:
     """Return the KID's text, with a '--- page N ---' marker before each page."""
-    pages = []
-    has_text = False
-    with pdfplumber.open(pdf_path) as pdf:
-        for number, page in enumerate(pdf.pages, start=1):  # 1-based, as printed
-            text = (page.extract_text() or "").strip()
-            pages.append(f"--- page {number} ---\n{text}")
-            has_text = has_text or bool(text)
-    if not has_text:
-        # A scanned PDF has no text layer: fail loudly rather than send empty pages.
-        raise ValueError(f"No extractable text in {pdf_path}. A scan may need OCR.")
-    return "\n\n".join(pages)
+    return format_pages(read_pages(pdf_path), pdf_path)
 
 
 def build_prompt(kid_text: str) -> str:
@@ -85,28 +93,41 @@ def describe_errors(error: ValidationError) -> str:
 
 
 def extract(pdf_path: str | Path, model: str = MODEL, chat=ollama.chat) -> Extraction:
-    """Ask the model; if the reply fails validation, retry once with the errors."""
-    prompt = build_prompt(read_kid_text(pdf_path))
+    """Ask the model; retry once if the reply is invalid or a value is not on its page."""
+    pages = read_pages(pdf_path)
+    prompt = build_prompt(format_pages(pages, pdf_path))
     messages = [{"role": "user", "content": prompt}]
     responses, errors = [], []
+    last_valid = None  # (facts, flags) of the most recent schema-valid answer
     for _ in range(MAX_ATTEMPTS):
         response = call_model(messages, model, chat)
         responses.append(response)
         try:
             facts = KidFacts.model_validate_json(response.message.content)
         except ValidationError as error:
-            errors.append(describe_errors(error))
-            messages += [
-                {"role": "assistant", "content": response.message.content},
-                {
-                    "role": "user",
-                    "content": "Your JSON failed validation:\n"
-                    + errors[-1]
-                    + "\nReturn the corrected JSON object only.",
-                },
-            ]
+            problems = describe_errors(error)
+            feedback = "Your JSON failed validation:\n" + problems
         else:
-            return Extraction(facts, responses, errors)
+            flags = grounding_problems(facts, pages)
+            if not flags:
+                return Extraction(facts, responses, errors)
+            last_valid = (facts, flags)
+            problems = "\n".join(f"- {flag}" for flag in flags)
+            feedback = (
+                "These values are not printed on the page you cited:\n"
+                + problems
+                + "\nCheck the document and correct each value or its page."
+            )
+        errors.append(problems)
+        messages += [
+            {"role": "assistant", "content": response.message.content},
+            {
+                "role": "user",
+                "content": feedback + "\nReturn the corrected JSON object only.",
+            },
+        ]
+    if last_valid is not None:  # keep a usable answer, with its flags, over no answer
+        return Extraction(last_valid[0], responses, errors, ungrounded=last_valid[1])
     return Extraction(None, responses, errors)
 
 
@@ -126,6 +147,8 @@ def main() -> None:
             print("FAILED after retry:\n" + "\n".join(result.errors))
         else:
             print(result.facts.model_dump_json(indent=2))
+            for flag in result.ungrounded:
+                print(f"UNGROUNDED: {flag}")
         last = result.responses[-1]
         print(
             f"prompt tokens: {last.prompt_eval_count}  output tokens: {last.eval_count}\n"

@@ -1,0 +1,70 @@
+{
+  "kid_id": "pictet_gold_i_usd",
+  "kid_sha256": "f4b7b20ec1df0f254838d4a8df53e09050f5a61b983c387a99479653188ceff8",
+  "model": "qwen3.5:4b",
+  "model_digest": "7f3251fa6878a78a606bcb3c074283306e5ad2ea411a7774a9dd98a4bc7f2d13",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "presence_penalty": 0
+  },
+  "max_attempts": 2,
+  "attempts": 1,
+  "seconds": 33.8,
+  "prompt_tokens": [
+    3969
+  ],
+  "raw": [
+    "{\n  \"fund_name\": {\n    \"value\": \"Pictet CH Precious Metals Fund - Physical Gold - I USD\",\n    \"page\": 1\n  },\n  \"isin\": {\n    \"value\": \"CH0104848269\",\n    \"page\": 1\n  },\n  \"manufacturer\": {\n    \"value\": \"Pictet Asset Management SA\",\n    \"page\": 1\n  },\n  \"kid_date\": {\n    \"value\": \"06-02-2026\",\n    \"page\": 1\n  },\n  \"risk_indicator\": {\n    \"value\": 4,\n    \"page\": 2\n  },\n  \"recommended_holding_period\": {\n    \"value\": 5,\n    \"unit\": \"years\",\n    \"page\": 2\n  },\n  \"entry_cost_pct\": {\n    \"value\": 5.0,\n    \"page\": 3,\n    \"is_maximum\": true\n  },\n  \"exit_cost_pct\": {\n    \"value\": 1.0,\n    \"page\": 3,\n    \"is_maximum\": true\n  },\n  \"management_fees_and_other_costs_pct\": {\n    \"value\": 0.22,\n    \"page\": 3\n  },\n  \"transaction_costs_pct\": {\n    \"value\": 0.04,\n    \"page\": 3\n  },\n  \"performance_fee_pct\": {\n    \"value\": 0,\n    \"page\": 3\n  }\n}"
+  ],
+  "errors": [],
+  "ungrounded": [],
+  "valid": true,
+  "score": {
+    "fund_name": {
+      "value": true,
+      "page": true
+    },
+    "isin": {
+      "value": true,
+      "page": true
+    },
+    "manufacturer": {
+      "value": true,
+      "page": true
+    },
+    "kid_date": {
+      "value": true,
+      "page": true
+    },
+    "risk_indicator": {
+      "value": true,
+      "page": true
+    },
+    "recommended_holding_period": {
+      "value": true,
+      "page": true
+    },
+    "entry_cost_pct": {
+      "value": true,
+      "page": true
+    },
+    "exit_cost_pct": {
+      "value": true,
+      "page": true
+    },
+    "management_fees_and_other_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "transaction_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "performance_fee_pct": {
+      "value": true,
+      "page": true
+    }
+  }
+}
