@@ -1,0 +1,62 @@
+{
+  "kid_id": "vanguard_ftse_all_world_usd_acc",
+  "reviewed": true,
+  "fund_name": {
+    "value": "Vanguard FTSE All-World UCITS ETF (USD) Accumulating Shares",
+    "pages": [1],
+    "quote": "Vanguard FTSE All-World UCITS ETF (the \"Fund\") - (USD) Accumulating Shares"
+  },
+  "isin": {
+    "value": "IE00BK5BQT80",
+    "pages": [1],
+    "quote": "IE00BK5BQT80"
+  },
+  "manufacturer": {
+    "value": "Vanguard Group (Ireland) Limited",
+    "pages": [1],
+    "quote": "Vanguard Group (Ireland) Limited"
+  },
+  "kid_date": {
+    "value": "28/07/2026",
+    "pages": [1],
+    "quote": "This Key Information Document is dated 28/07/2026"
+  },
+  "risk_indicator": {
+    "value": 4,
+    "pages": [1],
+    "quote": "classified this Fund as 4 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 5,
+    "unit": "years",
+    "pages": [2, 3],
+    "quote": "5 years"
+  },
+  "entry_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "The Fund does not charge an entry fee",
+    "is_maximum": false
+  },
+  "exit_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "The Fund does not charge an exit fee",
+    "is_maximum": false
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 0.14,
+    "pages": [3],
+    "quote": "0.14% of the value of your investment p.a."
+  },
+  "transaction_costs_pct": {
+    "value": 0.03,
+    "pages": [3],
+    "quote": "0.03% of the value of your investment per year"
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "There is no performance fee for this Fund"
+  }
+}
