@@ -1,0 +1,62 @@
+{
+  "kid_id": "spdr_msci_world_small_cap_acc",
+  "reviewed": true,
+  "fund_name": {
+    "value": "State Street SPDR MSCI World Small Cap UCITS ETF (Acc)",
+    "pages": [1],
+    "quote": "State Street SPDR MSCI World Small Cap UCITS ETF (Acc)"
+  },
+  "isin": {
+    "value": "IE00BCBJG560",
+    "pages": [1],
+    "quote": "IE00BCBJG560"
+  },
+  "manufacturer": {
+    "value": "State Street Global Advisors Europe Limited",
+    "pages": [1],
+    "quote": "managed by State Street Global Advisors Europe Limited"
+  },
+  "kid_date": {
+    "value": "19 February 2026",
+    "pages": [1],
+    "quote": "Accurate as of: 19 February 2026"
+  },
+  "risk_indicator": {
+    "value": 4,
+    "pages": [2],
+    "quote": "classified this product as 4 out of 7"
+  },
+  "recommended_holding_period": {
+    "value": 5,
+    "unit": "years",
+    "pages": [2, 3],
+    "quote": "5 years"
+  },
+  "entry_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "0.00% The impact of the costs you pay when entering your investment",
+    "is_maximum": true
+  },
+  "exit_cost_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "0.00% The Impact of the costs of exiting your investment when it matures",
+    "is_maximum": false
+  },
+  "management_fees_and_other_costs_pct": {
+    "value": 0.45,
+    "pages": [3],
+    "quote": "0.45% of the value of your investment per year"
+  },
+  "transaction_costs_pct": {
+    "value": 0.01,
+    "pages": [3],
+    "quote": "0.01% The impact of the costs of us buying"
+  },
+  "performance_fee_pct": {
+    "value": 0.0,
+    "pages": [3],
+    "quote": "There is no performance fee for this Fund"
+  }
+}
