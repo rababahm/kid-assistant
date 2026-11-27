@@ -1,0 +1,66 @@
+{
+  "run": "test_v1",
+  "split": "test",
+  "model": "qwen3.5:4b",
+  "model_digest": "7f3251fa6878a78a606bcb3c074283306e5ad2ea411a7774a9dd98a4bc7f2d13",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "presence_penalty": 0
+  },
+  "max_attempts": 2,
+  "kids": 12,
+  "invalid": [],
+  "retried": [],
+  "ungrounded": {},
+  "values": "131/132",
+  "pages": "132/132",
+  "median_seconds": 30.1,
+  "per_field": {
+    "fund_name": {
+      "values": 12,
+      "pages": 12
+    },
+    "isin": {
+      "values": 12,
+      "pages": 12
+    },
+    "manufacturer": {
+      "values": 12,
+      "pages": 12
+    },
+    "kid_date": {
+      "values": 12,
+      "pages": 12
+    },
+    "risk_indicator": {
+      "values": 12,
+      "pages": 12
+    },
+    "recommended_holding_period": {
+      "values": 12,
+      "pages": 12
+    },
+    "entry_cost_pct": {
+      "values": 11,
+      "pages": 12
+    },
+    "exit_cost_pct": {
+      "values": 12,
+      "pages": 12
+    },
+    "management_fees_and_other_costs_pct": {
+      "values": 12,
+      "pages": 12
+    },
+    "transaction_costs_pct": {
+      "values": 12,
+      "pages": 12
+    },
+    "performance_fee_pct": {
+      "values": 12,
+      "pages": 12
+    }
+  }
+}

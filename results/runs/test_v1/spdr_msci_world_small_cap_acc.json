@@ -1,0 +1,70 @@
+{
+  "kid_id": "spdr_msci_world_small_cap_acc",
+  "kid_sha256": "db2dd05e1bf65217521b9a360ed1b65c44acbedfc552b485bb7d2b39c291b4e0",
+  "model": "qwen3.5:4b",
+  "model_digest": "7f3251fa6878a78a606bcb3c074283306e5ad2ea411a7774a9dd98a4bc7f2d13",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "presence_penalty": 0
+  },
+  "max_attempts": 2,
+  "attempts": 1,
+  "seconds": 29.7,
+  "prompt_tokens": [
+    4534
+  ],
+  "raw": [
+    "{\n  \"fund_name\": {\n    \"value\": \"State Street SPDR MSCI World Small Cap UCITS ETF (Acc)\",\n    \"page\": 1\n  },\n  \"isin\": {\n    \"value\": \"IE00BCBJG560\",\n    \"page\": 1\n  },\n  \"manufacturer\": {\n    \"value\": \"State Street Global Advisors Europe Limited\",\n    \"page\": 1\n  },\n  \"kid_date\": {\n    \"value\": \"19 February 2026\",\n    \"page\": 1\n  },\n  \"risk_indicator\": {\n    \"value\": 4,\n    \"page\": 2\n  },\n  \"recommended_holding_period\": {\n    \"value\": 5,\n    \"unit\": \"years\",\n    \"page\": 2\n  },\n  \"entry_cost_pct\": {\n    \"value\": 0.0,\n    \"page\": 3\n  ,\n  \"is_maximum\": false\n  },\n  \"exit_cost_pct\": {\n    \"value\": 0.0,\n    \"page\": 3\n  ,\n  \"is_maximum\": false\n  },\n  \"management_fees_and_other_costs_pct\": {\n    \"value\": 0.45,\n    \"page\": 3\n  },\n  \"transaction_costs_pct\": {\n    \"value\": 0.01,\n    \"page\": 3\n  },\n  \"performance_fee_pct\": {\n    \"value\": 0.0,\n    \"page\": 3\n  }\n}"
+  ],
+  "errors": [],
+  "ungrounded": [],
+  "valid": true,
+  "score": {
+    "fund_name": {
+      "value": true,
+      "page": true
+    },
+    "isin": {
+      "value": true,
+      "page": true
+    },
+    "manufacturer": {
+      "value": true,
+      "page": true
+    },
+    "kid_date": {
+      "value": true,
+      "page": true
+    },
+    "risk_indicator": {
+      "value": true,
+      "page": true
+    },
+    "recommended_holding_period": {
+      "value": true,
+      "page": true
+    },
+    "entry_cost_pct": {
+      "value": false,
+      "page": true
+    },
+    "exit_cost_pct": {
+      "value": true,
+      "page": true
+    },
+    "management_fees_and_other_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "transaction_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "performance_fee_pct": {
+      "value": true,
+      "page": true
+    }
+  }
+}

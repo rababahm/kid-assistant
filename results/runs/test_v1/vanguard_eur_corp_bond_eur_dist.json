@@ -1,0 +1,70 @@
+{
+  "kid_id": "vanguard_eur_corp_bond_eur_dist",
+  "kid_sha256": "f7fe5471ba4dbb1886062421a0025a21d5240b91ea91684af94cefcacd0d9cf5",
+  "model": "qwen3.5:4b",
+  "model_digest": "7f3251fa6878a78a606bcb3c074283306e5ad2ea411a7774a9dd98a4bc7f2d13",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "presence_penalty": 0
+  },
+  "max_attempts": 2,
+  "attempts": 1,
+  "seconds": 30.2,
+  "prompt_tokens": [
+    4660
+  ],
+  "raw": [
+    "{\n  \"fund_name\": {\n    \"value\": \"Vanguard EUR Corporate Bond UCITS ETF (the \\\"Fund\\\") - (EUR) Distributing Shares\",\n    \"page\": 1\n  },\n  \"isin\": {\n    \"value\": \"IE00BZ163G84\",\n    \"page\": 1\n  },\n  \"manufacturer\": {\n    \"value\": \"Vanguard Group (Ireland) Limited\",\n    \"page\": 1\n  },\n  \"kid_date\": {\n    \"value\": \"29/07/2026\",\n    \"page\": 1\n  },\n  \"risk_indicator\": {\n    \"value\": 2,\n    \"page\": 1\n  },\n  \"recommended_holding_period\": {\n    \"value\": 3,\n    \"unit\": \"years\",\n    \"page\": 2\n  },\n  \"entry_cost_pct\": {\n    \"value\": 0,\n    \"page\": 3,\n    \"is_maximum\": false\n  },\n  \"exit_cost_pct\": {\n    \"value\": 0,\n    \"page\": 3,\n    \"is_maximum\": false\n  },\n  \"management_fees_and_other_costs_pct\": {\n    \"value\": 0.07,\n    \"page\": 3\n  },\n  \"transaction_costs_pct\": {\n    \"value\": 0.03,\n    \"page\": 3\n  },\n  \"performance_fee_pct\": {\n    \"value\": 0,\n    \"page\": 3\n  }\n}"
+  ],
+  "errors": [],
+  "ungrounded": [],
+  "valid": true,
+  "score": {
+    "fund_name": {
+      "value": true,
+      "page": true
+    },
+    "isin": {
+      "value": true,
+      "page": true
+    },
+    "manufacturer": {
+      "value": true,
+      "page": true
+    },
+    "kid_date": {
+      "value": true,
+      "page": true
+    },
+    "risk_indicator": {
+      "value": true,
+      "page": true
+    },
+    "recommended_holding_period": {
+      "value": true,
+      "page": true
+    },
+    "entry_cost_pct": {
+      "value": true,
+      "page": true
+    },
+    "exit_cost_pct": {
+      "value": true,
+      "page": true
+    },
+    "management_fees_and_other_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "transaction_costs_pct": {
+      "value": true,
+      "page": true
+    },
+    "performance_fee_pct": {
+      "value": true,
+      "page": true
+    }
+  }
+}
