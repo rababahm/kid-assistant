@@ -73,7 +73,9 @@ def test_always_invalid_gives_no_facts_and_no_crash():
     assert len(result.errors) == MAX_ATTEMPTS
 
 
-def test_ungrounded_then_grounded_retries_and_names_the_field(facts_json, ungrounded_json):
+def test_ungrounded_then_grounded_retries_and_names_the_field(
+    facts_json, ungrounded_json
+):
     chat = FakeChat(ungrounded_json, facts_json)
     result = extract("fake.pdf", chat=chat)
     assert result.attempts == 2
