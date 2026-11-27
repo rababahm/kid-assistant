@@ -17,6 +17,9 @@ PERCENT_FIELDS = [
 def number_forms(x: float) -> set[str]:
     """Ways a KID may print a number: 0.22, 1.5, 1.50, 20, and with a decimal comma."""
     forms = {f"{x:g}", f"{x:.1f}", f"{x:.2f}"}
+    forms = {
+        f for f in forms if abs(float(f) - x) < 1e-9
+    }  # pad, never round: 0.26 is not "0.3"
     return forms | {f.replace(".", ",") for f in forms}
 
 
@@ -37,7 +40,9 @@ def grounding_problems(facts: KidFacts, pages: list[str]) -> list[str]:
             problems.append(f"{field}: page {item.page} does not exist")
             continue
         text = pages[item.page - 1]
-        if field in PERCENT_FIELDS:
+        if isinstance(item.value, str) and not item.value.strip():
+            found = False  # "" is a substring of every page and has no words
+        elif field in PERCENT_FIELDS:
             found = item.value == 0 or percent_on_page(item.value, text)
         elif field == "risk_indicator":
             found = re.search(rf"\b{item.value} out of 7", text) is not None
