@@ -1,7 +1,8 @@
 # Step 1 results: extraction on the 12 held-out test KIDs
 
 One run, made once, with the code, schema, prompt and gold labels frozen at tag `step1-freeze`
-(run files committed in `c822ee0`, folder `results/runs/test_v1/`). No change was made after the run.
+(run files committed in `c822ee0`, folder `results/runs/test_v1/`). The run files were not changed
+afterwards; code changes made after the run are listed under Disclosures.
 
 ## Setup
 
@@ -33,6 +34,24 @@ is the conservative view.
 For comparison, the 8 dev KIDs reached 88/88 values and pages after tuning. That number was
 used to choose changes, so it is not an estimate of accuracy.
 
+## Per field (12 test KIDs)
+
+| Field | Values | Pages |
+|---|---|---|
+| fund_name | 12/12 | 12/12 |
+| isin | 12/12 | 12/12 |
+| manufacturer | 12/12 | 12/12 |
+| kid_date | 12/12 | 12/12 |
+| risk_indicator | 12/12 | 12/12 |
+| recommended_holding_period | 12/12 | 12/12 |
+| entry_cost_pct | 11/12 | 12/12 |
+| exit_cost_pct | 12/12 | 12/12 |
+| management_fees_and_other_costs_pct | 12/12 | 12/12 |
+| transaction_costs_pct | 12/12 | 12/12 |
+| performance_fee_pct | 12/12 | 12/12 |
+
+`entry_cost_pct` includes `is_maximum` and `recommended_holding_period` includes the unit.
+
 ## The one miss
 
 | KID | Field | Gold | Model | Cause |
@@ -49,3 +68,7 @@ not changed after seeing the result.
   It was judged on dev only (0 dev lines changed, dev unchanged at 88/88) before the freeze.
 - The retry and grounding guards never fired on the test set; this run gives no evidence that
   they help, only that they did not harm.
+- After the run, tests found two bugs in the grounding check (rounded number forms such as 0.26
+  matching "0.3%", and empty strings counted as found); both were fixed in `cba8660`. They cannot
+  have changed this run: every value was printed exactly as returned and none was flagged. The
+  `kid-extract` command line was also rewritten (`30d03a0`); extraction logic is unchanged.
