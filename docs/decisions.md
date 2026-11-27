@@ -71,3 +71,34 @@ llama3.2:3b missed entry and exit costs on every KID.
   on the page; a check that every value appears on its cited page would catch it.
 - Sample: 6 KIDs, one run each, dev set only. These numbers are for choosing,
   not for reporting.
+
+## 3. Embedding model (provisional, 27 Nov 2026; to confirm in week 3)
+
+Script: `scripts/compare_embeddings.py`. 24 passages (the 3 pages of each of the 8 dev KIDs),
+10 single-fact questions built from the gold files (fund name and gold pages taken from
+`gold/`, not chosen by looking at retrieval results), including the Pictet Gold I/P pair.
+Prefixes as in each model card. hit@1 (right KID and a gold page ranked first):
+
+| Model (Ollama ID) | Size | A: plain | B: fund filter + topic question | C: fund name on every page |
+|---|---|---|---|---|
+| `nomic-embed-text` (`0a109f422b47`) | 274 MB | 1/10 | 9/10 | 10/10 |
+| `embeddinggemma` (`85462619ee72`) | 621 MB | 3/10 | 10/10 | 8/10 |
+| `qwen3-embedding:0.6b` (`ac6da0dfba84`) | 639 MB | 1/10 | 10/10 | 4/10 (1 wrong fund) |
+
+- **A:** question with the fund name, search over all pages. Every miss is the right fund but
+  page 1: the name dominates the question's vector, and page 1 is the only page printing it.
+- **B:** search restricted to the right fund's pages, question without the name ("...of this
+  fund?"). Restricting alone changes nothing if the name stays in the question.
+- **C:** fund name prepended to every page. Fixes page 1 for some models but reintroduces
+  share-class confusion (qwen: Pictet Gold I answered from Pictet Gold P).
+
+**Finding:** the fund filter (B) helps every model more than any model choice does in A.
+Fund detection is therefore a priority for step 2.
+
+**Provisional choice: `embeddinggemma`.** Best or tied on B; multilingual (plan rule: prefer a
+multilingual model within noise of the best English one, for the French stretch); nomic's lead
+on C (10 vs 8) is within noise at 10 questions.
+
+**Limits:** 10 templated questions, whole pages rather than chunks, B assumes the fund is
+detected correctly. Confirm on the week 3 retrieval set (20 answerable dev questions) with the
+chosen chunker.
