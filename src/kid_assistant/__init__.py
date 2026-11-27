@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from kid-assistant!")
+"""KID assistant: facts with page citations from fund Key Information Documents."""

@@ -1,7 +1,7 @@
 [project]
 name = "kid-assistant"
 version = "0.1.0"
-description = "Add your description here"
+description = "Extract facts with page citations from fund Key Information Documents (KIDs) using a local LLM"
 readme = "README.md"
 authors = [
     { name = "Mohammad Rababah", email = "119531086+rababahm@users.noreply.github.com" }
@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [project.scripts]
-kid-assistant = "kid_assistant:main"
+kid-extract = "kid_assistant.extract:main"
 
 [build-system]
 requires = ["uv_build>=0.13.6,<0.14.0"]

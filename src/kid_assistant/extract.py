@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from time import perf_counter
@@ -138,27 +139,29 @@ def extract(pdf_path: str | Path, model: str = MODEL, chat=ollama.chat) -> Extra
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(
+        description="Extract the facts of one KID as JSON, each value with its page."
+    )
     parser.add_argument("pdf_path", type=Path, help="path to the KID PDF")
-    parser.add_argument("--runs", type=int, default=3, help="number of repeated runs")
     args = parser.parse_args()
+    if not args.pdf_path.is_file():
+        parser.error(f"no such file: {args.pdf_path}")  # exits with code 2
 
-    print(f"model: {MODEL}  options: {OPTIONS}\n")
-    for run in range(1, args.runs + 1):
-        start = perf_counter()
-        result = extract(args.pdf_path)
-        seconds = perf_counter() - start
-        print(f"--- run {run}  attempts: {result.attempts}  seconds: {seconds:.1f}")
-        if result.facts is None:
-            print("FAILED after retry:\n" + "\n".join(result.errors))
-        else:
-            print(result.facts.model_dump_json(indent=2))
-            for flag in result.ungrounded:
-                print(f"UNGROUNDED: {flag}")
-        last = result.responses[-1]
-        print(
-            f"prompt tokens: {last.prompt_eval_count}  output tokens: {last.eval_count}\n"
-        )
+    start = perf_counter()
+    result = extract(args.pdf_path)
+    last = result.responses[-1]
+    print(
+        f"model: {MODEL}  attempts: {result.attempts}  "
+        f"seconds: {perf_counter() - start:.1f}  "
+        f"prompt tokens: {last.prompt_eval_count}  output tokens: {last.eval_count}",
+        file=sys.stderr,
+    )
+    if result.facts is None:
+        print("FAILED after retry:\n" + "\n".join(result.errors), file=sys.stderr)
+        sys.exit(1)
+    print(result.facts.model_dump_json(indent=2))
+    for flag in result.ungrounded:
+        print(f"UNGROUNDED: {flag}", file=sys.stderr)
 
 
 if __name__ == "__main__":
